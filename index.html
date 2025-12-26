@@ -1,1 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNAUTHORIZED ARCHIVE ACCESS</title>
+
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --text: #e6e6e6;
+      --muted: #9aa0a6;
+      --accent: #c93a3a;
+      --box: #141820;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Courier New", Courier, monospace;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .warning {
+      border: 1px solid var(--accent);
+      padding: 20px;
+      margin-bottom: 40px;
+      background: rgba(201, 58, 58, 0.05);
+    }
+
+    .warning h1 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+
+    .warning p {
+      margin: 6px 0;
+      color: var(--muted);
+    }
+
+    .section {
+      background: var(--box);
+      padding: 25px;
+      margin-bottom: 30px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .section h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .redacted {
+      background: #000;
+      color: #000;
+      padding: 2px 6px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .doc-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 14px;
+      border: 1px dashed var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .hidden {
+      display: none;
+      visibility: hidden;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="warning">
+      <h1>⚠ UNAUTHORIZED SHARE ⚠</h1>
+      <p>This archive was not intended to be accessed from this location.</p>
+      <p>If you are seeing this page, containment failed.</p>
+      <p>Do not mirror. Do not request edits.</p>
+    </div>
+
+    <div class="section">
+      <h2>READ FIRST</h2>
+      <div class="meta">FILE: NOTICE.txt | STATUS: ACTIVE</div>
+      <p>If you found this by accident, close it.</p>
+      <p>If you were sent here, do not ask who sent you.</p>
+      <p>Some files contradict others. Keep all versions.</p>
+      <p>Anything marked <span class="redacted">████████</span> was removed intentionally.</p>
+    </div>
+
+    <div class="section">
+      <h2>TRANSITION NOTICE</h2>
+      <div class="meta">FILE: TRANSITION_NOTICE.txt | LAST EDIT: UNKNOWN</div>
+      <p>This is where summaries stop.</p>
+      <p>Each subject will be addressed individually.</p>
+      <p>Redactions will increase.</p>
+      <p>Next subject file: <strong>ETHAN</strong>.</p>
+    </div>
+
+    <div class="section">
+      <h2>EXTERNAL DOCUMENT</h2>
+      <div class="meta">SOURCE: REMOTE | VIEW ONLY</div>
+      <p>This document was not supposed to leave its original directory.</p>
+
+      <a class="doc-link"
+         href="https://docs.google.com/document/d/1wjxvMcs14YOBQnZK6d5ordmnTDHZNRL1CzhwowzDcvk/edit?usp=sharing"
+         target="_blank">
+        DOCUMENT LINK — DO NOT MIRROR
+      </a>
+    </div>
+
+    <div class="section">
+      <h2>ARCHITECT MESSAGE (RECOVERED)</h2>
+      <div class="meta">FILE: ARCHITECT.msg</div>
+      <p><em>Morse transmission detected.</em></p>
+      <p>“I knew when the files reached me.”</p>
+      <p>“This was never a leak.”</p>
+    </div>
+
+    <!-- HIDDEN FILE -->
+    <div class="section hidden">
+      <h2>UNINDEXED FILE</h2>
+      <div class="meta">VISIBILITY: FALSE</div>
+      <p>If you can read this without inspecting the source, something failed.</p>
+      <p>Architect access confirmed.</p>
+    </div>
+
+    <!-- MORSE MESSAGE (HIDDEN)
+    .. / -.- -. . .-- / .-- .... . -. / -.-- --- ..- / --- .--. . -. . -.. / - .... .. ...
+    -->
+
+    <footer>
+      <p>Archive state unstable. Some files may update without notice.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    console.log("ARCHIVE NOTICE:");
+    console.log("You were not sent this page by accident.");
+    console.log("Reader trace logged.");
+    console.log("Architect: already aware.");
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "F12") {
+        console.warn("ACCESS ESCALATION DETECTED");
+      }
+    });
+  </script>
+
+</body>
+</html>
 
