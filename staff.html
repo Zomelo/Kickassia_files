@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INTERNAL STAFF RECORDS — RESTRICTED</title>
+
+<style>
+:root {
+  --bg:#0a0c10;
+  --panel:#121620;
+  --text:#e2e2e2;
+  --muted:#9aa0a6;
+  --accent:#b63b3b;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Courier New, monospace;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px 80px;
+}
+
+.header{
+  border:1px solid var(--accent);
+  padding:20px;
+  margin-bottom:40px;
+  background:rgba(182,59,59,0.05);
+}
+
+.header h1{
+  margin:0 0 10px;
+  color:var(--accent);
+  animation:flicker 2s infinite alternate;
+}
+
+@keyframes flicker{
+  0%,18%,22%,25%,53%,57%,100%{opacity:1}
+  20%,24%,55%{opacity:0.6}
+}
+
+.header p{color:var(--muted); margin:5px 0;}
+
+.staff{
+  background:var(--panel);
+  padding:25px;
+  margin-bottom:30px;
+  border-left:4px solid var(--accent);
+}
+
+.staff h2{
+  margin:0 0 10px;
+  cursor:pointer;
+  animation:flicker 2.5s infinite alternate;
+}
+
+.meta{
+  font-size:0.85rem;
+  color:var(--muted);
+  margin-bottom:15px;
+}
+
+.staff p{display:none;}
+
+.redacted{
+  background:black;
+  color:black;
+  padding:2px 6px;
+}
+
+.redacted:hover{color:var(--text);}
+
+#accessLog{
+  font-size:0.8rem;
+  background:#0d0f14;
+  border:1px dashed var(--accent);
+  padding:10px;
+  height:120px;
+  overflow-y:auto;
+  margin-bottom:40px;
+  color:var(--accent);
+}
+
+.footer{
+  text-align:center;
+  font-size:0.8rem;
+  color:var(--muted);
+}
+</style>
+</head>
 
