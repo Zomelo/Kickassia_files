@@ -1,187 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UNAUTHORIZED ARCHIVE ACCESS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNAUTHORIZED ARCHIVE ACCESS</title>
 
-  <style>
-    :root {
-      --bg: #0b0d10;
-      --text: #e6e6e6;
-      --muted: #9aa0a6;
-      --accent: #c93a3a;
-      --box: #141820;
-    }
+<style>
+:root {
+  --bg: #0b0d10;
+  --text: #e6e6e6;
+  --muted: #9aa0a6;
+  --accent: #c93a3a;
+  --box: #141820;
+  --redacted: #000;
+}
 
-    * { box-sizing: border-box; }
+body {
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Courier New", Courier, monospace;
-      line-height: 1.6;
-    }
+.container { max-width:900px; margin:0 auto; padding:40px 20px 80px; }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
+.warning {
+  border:1px solid var(--accent);
+  padding:20px;
+  margin-bottom:40px;
+  background: rgba(201,58,58,0.05);
+  animation: flicker 2s infinite alternate;
+}
 
-    .warning {
-      border: 1px solid var(--accent);
-      padding: 20px;
-      margin-bottom: 40px;
-      background: rgba(201, 58, 58, 0.05);
-    }
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {opacity:1;}
+  20%, 22%, 24%, 55% {opacity:0.6;}
+}
 
-    .warning h1 {
-      margin: 0 0 10px;
-      font-size: 1.5rem;
-      color: var(--accent);
-    }
+.warning h1 { margin:0 0 10px; font-size:1.5rem; color: var(--accent); }
 
-    .warning p {
-      margin: 6px 0;
-      color: var(--muted);
-    }
+.warning p { margin:6px 0; color: var(--muted); }
 
-    .section {
-      background: var(--box);
-      padding: 25px;
-      margin-bottom: 30px;
-      border-left: 4px solid var(--accent);
-    }
+.section {
+  background: var(--box);
+  padding:25px;
+  margin-bottom:30px;
+  border-left:4px solid var(--accent);
+  position:relative;
+}
 
-    .section h2 {
-      margin-top: 0;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
-    }
+.section h2 {
+  margin-top:0;
+  font-size:1.2rem;
+  letter-spacing:1px;
+  animation: flicker 2s infinite alternate;
+  cursor:pointer;
+}
 
-    .meta {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 15px;
-    }
+.section.collapsible p, .section.collapsible a { display:none; }
 
-    .redacted {
-      background: #000;
-      color: #000;
-      padding: 2px 6px;
-    }
+.section .meta { font-size:0.85rem; color: var(--muted); margin-bottom: 15px; }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+.redacted {
+  background: var(--redacted);
+  color: var(--redacted);
+  padding:2px 6px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+.redacted:hover { color: var(--text); }
 
-    .doc-link {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 14px;
-      border: 1px dashed var(--accent);
-      font-size: 0.9rem;
-    }
+.doc-link {
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 14px;
+  border:1px dashed var(--accent);
+  font-size:0.9rem;
+}
 
-    .hidden {
-      display: none;
-      visibility: hidden;
-    }
+.hidden {
+  display:none;
+  visibility:hidden;
+}
 
-    footer {
-      margin-top: 60px;
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-align: center;
-    }
-  </style>
+.footer {
+  margin-top:60px;
+  font-size:0.8rem;
+  color: var(--muted);
+  text-align:center;
+}
+
+#log {
+  font-size:0.8rem;
+  color: var(--accent);
+  height:120px;
+  overflow-y:auto;
+  background: #0d0f12;
+  border:1px dashed var(--accent);
+  padding:10px;
+  margin-bottom:20px;
+}
+</style>
 </head>
-
 <body>
-  <div class="container">
 
-    <div class="warning">
-      <h1>⚠ UNAUTHORIZED SHARE ⚠</h1>
-      <p>This archive was not intended to be accessed from this location.</p>
-      <p>If you are seeing this page, containment failed.</p>
-      <p>Do not mirror. Do not request edits.</p>
-    </div>
+<div class="container">
 
-    <div class="section">
-      <h2>READ FIRST</h2>
-      <div class="meta">FILE: NOTICE.txt | STATUS: ACTIVE</div>
-      <p>If you found this by accident, close it.</p>
-      <p>If you were sent here, do not ask who sent you.</p>
-      <p>Some files contradict others. Keep all versions.</p>
-      <p>Anything marked <span class="redacted">████████</span> was removed intentionally.</p>
-    </div>
-
-    <div class="section">
-      <h2>TRANSITION NOTICE</h2>
-      <div class="meta">FILE: TRANSITION_NOTICE.txt | LAST EDIT: UNKNOWN</div>
-      <p>This is where summaries stop.</p>
-      <p>Each subject will be addressed individually.</p>
-      <p>Redactions will increase.</p>
-      <p>Next subject file: <strong>ETHAN</strong>.</p>
-    </div>
-
-    <div class="section">
-      <h2>EXTERNAL DOCUMENT</h2>
-      <div class="meta">SOURCE: REMOTE | VIEW ONLY</div>
-      <p>This document was not supposed to leave its original directory.</p>
-
-      <a class="doc-link"
-         href="https://docs.google.com/document/d/1wjxvMcs14YOBQnZK6d5ordmnTDHZNRL1CzhwowzDcvk/edit?usp=sharing"
-         target="_blank">
-        DOCUMENT LINK — DO NOT MIRROR
-      </a>
-    </div>
-
-    <div class="section">
-      <h2>ARCHITECT MESSAGE (RECOVERED)</h2>
-      <div class="meta">FILE: ARCHITECT.msg</div>
-      <p><em>Morse transmission detected.</em></p>
-      <p>“I knew when the files reached me.”</p>
-      <p>“This was never a leak.”</p>
-    </div>
-
-    <!-- HIDDEN FILE -->
-    <div class="section hidden">
-      <h2>UNINDEXED FILE</h2>
-      <div class="meta">VISIBILITY: FALSE</div>
-      <p>If you can read this without inspecting the source, something failed.</p>
-      <p>Architect access confirmed.</p>
-    </div>
-
-    <!-- MORSE MESSAGE (HIDDEN)
-    .. / -.- -. . .-- / .-- .... . -. / -.-- --- ..- / --- .--. . -. . -.. / - .... .. ...
-    -->
-
-    <footer>
-      <p>Archive state unstable. Some files may update without notice.</p>
-    </footer>
-
+  <div class="warning">
+    <h1>⚠ UNAUTHORIZED SHARE ⚠</h1>
+    <p>This archive was not intended to be accessed from this location.</p>
+    <p>If you are seeing this page, containment failed.</p>
+    <p>Do not mirror. Do not request edits.</p>
   </div>
 
-  <script>
-    console.log("ARCHIVE NOTICE:");
-    console.log("You were not sent this page by accident.");
-    console.log("Reader trace logged.");
-    console.log("Architect: already aware.");
+  <div id="log">
+    [03:14:22] Access detected: Unknown user<br>
+    [03:14:45] Warning: File opened<br>
+  </div>
 
-    document.addEventListener("keydown", function(e) {
-      if (e.key === "F12") {
-        console.warn("ACCESS ESCALATION DETECTED");
-      }
+  <!-- SUBJECTS -->
+  <div class="section collapsible">
+    <h2>Ethan</h2>
+    <div class="meta">STATUS: ACTIVE | LAST: [REDACTED]</div>
+    <p>Appears normal, but exhibits anticipatory speech.</p>
+    <p>Notes often contain <span class="redacted">████████</span>.</p>
+    <p>Temporal anomalies observed: 1–2 seconds displacement.</p>
+  </div>
+
+  <div class="section collapsible">
+    <h2>Reed</h2>
+    <div class="meta">STATUS: ACTIVE</div>
+    <p>Communicates in cryptic shorthand.</p>
+    <p>Environmental influence is subtle but measurable.</p>
+  </div>
+
+  <div class="section collapsible">
+    <h2>Dom</h2>
+    <div class="meta">STATUS: UNKNOWN</div>
+    <p>Exhibits unusual patterns in recorded movement.</p>
+  </div>
+
+  <div class="section collapsible">
+    <h2>Zach</h2>
+    <div class="meta">STATUS: ACTIVE</div>
+    <p>Power manifests only under core influence <span class="redacted">██████</span>.</p>
+  </div>
+
+  <div class="section collapsible">
+    <h2>DeTerrion</h2>
+    <div class="meta">STATUS: ACTIVE</div>
+    <p>Behavioral notes partially redacted.</p>
+  </div>
+
+  <div class="section collapsible">
+    <h2>Avery</h2>
+    <div class="meta">STATUS: UNKNOWN</div>
+    <p>Environmental influence inconsistent.</p>
+  </div>
+
+  <div class="section collapsible">
+    <h2>Coaster / James</h2>
+    <div class="meta">STATUS: ACTIVE</div>
+    <p>Notes and recordings incomplete.</p>
+  </div>
+
+  <div class="section">
+    <h2>External Document</h2>
+    <div class="meta">SOURCE: REMOTE | VIEW ONLY</div>
+    <a class="doc-link"
+       href="https://docs.google.com/document/d/1wjxvMcs14YOBQnZK6d5ordmnTDHZNRL1CzhwowzDcvk/edit?usp=sharing"
+       target="_blank">
+      DOCUMENT LINK — DO NOT MIRROR
+    </a>
+  </div>
+
+  <div class="section">
+    <h2>ARCHITECT MESSAGE (RECOVERED)</h2>
+    <div class="meta">FILE: ARCHITECT.msg</div>
+    <p><em>Morse transmission detected.</em></p>
+    <p>“I knew when the files reached me.”</p>
+    <p>“This was never a leak.”</p>
+  </div>
+
+  <!-- HIDDEN EASTER EGGS -->
+  <div class="section hidden">
+    <h2>UNINDEXED FILE</h2>
+    <div class="meta">VISIBILITY: FALSE</div>
+    <p>If you can see this without inspecting source, something failed.</p>
+    <p>Architect access confirmed.</p>
+  </div>
+
+  <!-- MORSE MESSAGE (HIDDEN)
+  .. / -.- -. . .-- / .-- .... . -. / -.-- --- ..- / --- .--. . -. . -.. / - .... .. ...
+  -->
+
+  <div class="footer">
+    <p>Archive state unstable. Some files may update without notice.</p>
+  </div>
+
+</div>
+
+<script>
+// Collapsible sections
+document.querySelectorAll('.section h2').forEach(h2 => {
+  h2.addEventListener('click', () => {
+    const section = h2.parentElement;
+    section.classList.toggle('collapsible');
+    section.querySelectorAll('p, a').forEach(el => {
+      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
     });
-  </script>
+  });
+});
+
+// Simulate live log updates
+const log = document.getElementById('log');
+setInterval(() => {
+  const time = new Date().toLocaleTimeString();
+  const events = [
+    'Access detected: Unknown user',
+    'Warning: File opened',
+    'Redacted section accessed',
+    'Connection unstable',
+    'Unauthorized inspection detected'
+  ];
+  const event = events[Math.floor(Math.random()*events.length)];
+  log.innerHTML += `[${time}] ${event}<br>`;
+  log.scrollTop = log.scrollHeight;
+}, 10000);
+
+// DevTools console messages
+console.log("ARCHIVE NOTICE:");
+console.log("You were not sent this page by accident.");
+console.log("Reader trace logged.");
+console.log("Architect: already aware.");
+
+// Detect F12
+document.addEventListener("keydown", e => {
+  if(e.key === "F12") console.warn("ACCESS ESCALATION DETECTED");
+});
+</script>
+
+</body>
+</html>
+
 
 </body>
 </html>
